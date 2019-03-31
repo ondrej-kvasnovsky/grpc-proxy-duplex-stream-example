@@ -25,7 +25,7 @@ function main() {
     console.log('Started');
     const call = client.echo({});
     call.on('data', function (node) {
-        console.log('Echoing', node);
+        console.log(new Date(), 'From proxy', node);
     });
     call.on('end', function () {
         // The server has finished sending

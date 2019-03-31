@@ -17,7 +17,7 @@ function echo(stream) {
     stream.on('readable', () => {
         let chunk;
         while (null !== (chunk = stream.read())) {
-            console.log(`Received ${JSON.stringify(chunk)}.`);
+            console.log(new Date(), `Received ${JSON.stringify(chunk)}.`);
             stream.write(chunk);
         }
     });

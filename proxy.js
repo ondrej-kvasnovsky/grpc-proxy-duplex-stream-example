@@ -16,17 +16,17 @@ function echo(stream) {
 
     const serverStream = getStream();
     serverStream.on('readable', () => {
-        console.log('Proxying, do your checks and so on... ');
+        console.log(new Date(), 'Proxying, do your checks and so on... ');
         let chunk;
         while (null !== (chunk = serverStream.read())) {
-            console.log(`Sending ${JSON.stringify(chunk)} from server stream to client.`);
+            console.log(new Date(), `Sending ${JSON.stringify(chunk)} from server stream to client.`);
             stream.write(chunk);
         }
     });
     stream.on('readable', () => {
         let chunk;
         while (null !== (chunk = stream.read())) {
-            console.log(`Received ${JSON.stringify(chunk)} from client.`);
+            console.log(new Date(), `Received ${JSON.stringify(chunk)} from client.`);
             serverStream.write(chunk);
         }
     });

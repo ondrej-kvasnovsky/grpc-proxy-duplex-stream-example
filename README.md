@@ -22,5 +22,24 @@ proxy>  Received {"value":"hi"} from client.
 server> Received {"value":"hi"}.
 proxy>  Sending {"value":"hi"} from server stream to client.
 client> Echoing { value: 'hi' }
+```
 
+Here is output from all three consoles.
+
+_client.js_
+```$bash
+hello guys
+2019-03-31T16:35:04.736Z 'From proxy' { value: 'hello guys' }
+```
+
+_proxy.js_
+```$bash
+2019-03-31T16:35:04.731Z 'Received {"value":"hello guys"} from client.'
+2019-03-31T16:35:04.734Z 'Proxying, do your checks and so on... '
+2019-03-31T16:35:04.735Z 'Sending {"value":"hello guys"} from server stream to client.'
+```
+
+_server.js_
+```$bash
+2019-03-31T16:35:04.733Z 'Received {"value":"hello guys"}.'
 ```
